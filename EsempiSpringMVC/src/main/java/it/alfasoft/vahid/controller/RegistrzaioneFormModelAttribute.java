@@ -2,7 +2,7 @@ package it.alfasoft.vahid.controller;
 
 import it.alfasoft.vahid.model.Cliente;
 
-import java.util.Map;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -27,9 +26,9 @@ public class RegistrzaioneFormModelAttribute {
 	
 	
 
-	// prendere tutti parametri in una mappa
+	// prendere i dati automaticamente tramite @ModelAttribute 
 	@RequestMapping(value="/registraCliente_2.html",method=RequestMethod.POST)
-	public ModelAndView RegistraForm(@ModelAttribute("c") Cliente cliente,BindingResult bind){
+	public ModelAndView RegistraForm(@Valid @ModelAttribute("c") Cliente cliente,BindingResult bind){
 		
 		
 		if(bind.hasErrors()){

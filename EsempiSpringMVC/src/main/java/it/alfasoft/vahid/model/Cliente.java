@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.Size;
+
 public class Cliente implements Serializable{
 
 	/**
@@ -11,7 +13,7 @@ public class Cliente implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Size(min=5,max=10)
 	private String nome;
 	private String cognome;
 	private int eta;
